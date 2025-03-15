@@ -54,6 +54,9 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
 
     set<string> visited;
 
+    ladder_queue.push({begin_word});
+    visited.insert(begin_word);
+
     while (!ladder_queue.empty()) {
         vector<string> ladder = ladder_queue.front();
         ladder_queue.pop();
@@ -98,7 +101,7 @@ void print_word_ladder(const vector<string>& ladder) {
 
     for (size_t i = 0; i < ladder.size(); ++i) {
         cout << ladder[i];
-        if (i < ladder.size() - 1) cout << " -> ";
+        if (i < ladder.size() - 1) cout << " ";
 
     }
     cout << endl;
